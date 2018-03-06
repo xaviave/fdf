@@ -6,7 +6,7 @@
 #    By: wgaetan <marvin@le-101.fr>                 +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/03/05 18:53:52 by wgaetan      #+#   ##    ##    #+#        #
-#    Updated: 2018/03/06 17:07:43 by xamartin    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/03/06 18:15:00 by xamartin    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -48,7 +48,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(LIBS) $(OBJS)
-	@$(CC) -ggdb $(FLAGS) $(LIBS) $(EXT_LIBS) $(OBJS) -o $(NAME)
+	@$(CC) $(FLAGS) $(LIBS) $(EXT_LIBS) $(OBJS) -o $(NAME)
 
 $(LIBS):
 	@make -C ./libft
