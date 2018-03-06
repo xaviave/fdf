@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/01 14:57:16 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 18:08:12 by xamartin    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/06 18:16:48 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,13 +15,13 @@
 
 static int	ft_init(t_mem *mem)
 {
-	mem->color1.r = 119;
-	mem->color1.g = 65;
-	mem->color1.b = 208;
-	mem->color1.a = 50;
-	mem->color2.r = 173;
-	mem->color2.g = 254;
-	mem->color2.b = 2;
+	mem->color1.r = 159;
+	mem->color1.g = 46;
+	mem->color1.b = 255;
+	mem->color1.a = 100;
+	mem->color2.r = 159;
+	mem->color2.g = 155;
+	mem->color2.b = 255;
 	mem->color2.a = 0;
 	mem->theta = 4;
 	mem->alpha = 4;
