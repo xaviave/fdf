@@ -6,17 +6,17 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/03/01 17:03:02 by wgaetan      #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 13:27:47 by xamartin    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/05 13:11:52 by wgaetan     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-static void	free_tab(t_mem *mem)
+static void free_tab(t_mem *mem)
 {
 	int		i;
-
+	
 	i = 0;
 	while (i < mem->nb_y)
 	{
@@ -41,7 +41,7 @@ void		ft_get_pt_grid(t_mem *mem)
 			mem->pt_grid[i][j].data[1] = i;
 			mem->pt_grid[i][j].data[2] = mem->tab[i][j];
 			j++;
-		}
+		}	
 		i++;
 	}
 }

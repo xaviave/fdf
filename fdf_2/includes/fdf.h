@@ -6,13 +6,14 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/01 15:38:34 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 15:11:08 by xamartin    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/06 14:44:18 by wgaetan     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #ifndef _FDF_H
 # define _FDF_H
+
 
 # include "../minilibx_macos/mlx.h"
 # include "../libft/libft.h"
@@ -21,7 +22,6 @@
 /*
 ** functions
 */
-
 typedef struct		s_color
 {
 	unsigned char	r;
@@ -57,7 +57,7 @@ typedef struct		s_bresvar
 	int				sy;
 	int				err;
 	int				e2;
-	float			i;
+	float				i;
 }					t_bresvar;
 
 typedef struct		s_img
@@ -81,6 +81,10 @@ typedef struct		s_mem
 	t_color			color[100];
 	t_color			color1;
 	t_color			color2;
+	t_color			colora;
+	t_color			colorb;
+	t_color			colorc;
+	t_color			colord;
 	t_win			win;
 	t_img			img;
 	int				max_z;
@@ -89,7 +93,7 @@ typedef struct		s_mem
 	float			alpha;
 	void			*mlx_ptr;
 	t_pt			**pt_grid;
-	float			**tab;
+	int				**tab;
 	int				nb_x;
 	int				nb_y;
 	int				x_offset;
@@ -97,19 +101,26 @@ typedef struct		s_mem
 	int				zoom;
 }					t_mem;
 
-int					ft_key(int key, t_mem *mem);
-int					parse(t_mem *map, char *file);
-void				display(t_mem *mem);
 void				color_init(t_mem *mem);
-void				ft_main_loop(t_mem *mem);
-void				ft_create_img(t_mem *mem);
-void				ft_mtx_display(t_mem *mem);
+void				parse(t_mem *map, char *file);
 void				ft_get_pt_grid(t_mem *mem);
 void				ft_matrix_compute(t_mem *mem);
+void				ft_mtx_display(t_mem *mem);
 void				bresenham_gen(t_mem *mem, t_affvars var);
 void				ft_put_pixel(t_mem *mem, t_color color, int x, int y);
-t_color				ft_color_calc(t_affvars var);
+void				display(t_mem *mem);
+void				ft_create_img(t_mem *mem);
 t_color				pt_color(t_mem *mem, int i, int j);
+t_color				ft_color_calc(t_affvars var);
+void				ft_disp_h0(t_mem *mem);
+void				ft_disp_v0(t_mem *mem);
+void				ft_disp_h1(t_mem *mem);
+void				ft_disp_v1(t_mem *mem);
+void				ft_disp_h2(t_mem *mem);
+void				ft_disp_v2(t_mem *mem);
+void				ft_disp_h3(t_mem *mem);
+void				ft_disp_v3(t_mem *mem);
+int					ft_optimize(t_affvars var, t_mem *mem);
 
 /*
 ** keyboard touch value
@@ -122,7 +133,7 @@ t_color				pt_color(t_mem *mem, int i, int j);
 # define TOUCH_5 23
 # define TOUCH_6 22
 # define TOUCH_7 26
-# define TOUCH_8 28
+# define TOUCH_8 28 
 # define TOUCH_9 25
 # define TOUCH_0 29
 # define TOUCH_Q 12

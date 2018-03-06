@@ -6,17 +6,17 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/06 14:26:02 by wgaetan      #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 13:18:32 by xamartin    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/05 21:08:56 by wgaetan     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-t_color		pt_color(t_mem *mem, int i, int j)
+t_color	pt_color(t_mem *mem, int i, int j)
 {
-	double		z;
-	t_color		color;
+	double	z;
+	t_color	color;
 
 	if ((mem->max_z - mem->min_z) != 0)
 	{
@@ -32,9 +32,10 @@ t_color		pt_color(t_mem *mem, int i, int j)
 		return (mem->color1);
 }
 
-t_color		ft_color_calc(t_affvars var)
+
+t_color	ft_color_calc(t_affvars var)
 {
-	t_color	new;
+	t_color new;
 
 	new.r = (var.color2.r - var.color1.r) * var.z;
 	new.r += var.color1.r;

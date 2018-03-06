@@ -6,7 +6,7 @@
 #    By: wgaetan <marvin@le-101.fr>                 +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/03/02 10:50:03 by wgaetan      #+#   ##    ##    #+#        #
-#    Updated: 2018/03/06 11:29:04 by xamartin    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/03/02 10:50:06 by wgaetan     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -29,15 +29,15 @@ OBJ = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 ./%.o: ./%.c
-	@gcc -Wall -Wextra -Werror -o $@ -c $<
+	gcc -Wall -Wextra -Werror -o $@ -c $<
 
 clean:
-	@rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all

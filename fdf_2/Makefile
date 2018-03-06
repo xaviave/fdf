@@ -6,7 +6,7 @@
 #    By: wgaetan <marvin@le-101.fr>                 +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2018/03/05 18:53:52 by wgaetan      #+#   ##    ##    #+#        #
-#    Updated: 2018/03/06 15:13:46 by xamartin    ###    #+. /#+    ###.fr      #
+#    Updated: 2018/03/06 14:21:35 by wgaetan     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -29,12 +29,16 @@ SRCS = srcs/main.c\
 	   srcs/parse.c\
 	   srcs/get_pt_grid.c\
 	   srcs/pt_grid_compute.c\
+	   srcs/ft_mtx_display.c\
 	   srcs/display.c\
 	   srcs/image_manage.c\
 	   srcs/bresenham.c\
 	   srcs/color_init.c\
 	   srcs/color_manage.c\
-	   srcs/key_manage.c\
+	   srcs/display_0.c\
+	   srcs/display_1.c\
+	   srcs/display_2.c\
+	   srcs/display_3.c\
 
 OBJS = $(SRCS:.c=.o)
 
@@ -44,7 +48,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(LIBS) $(OBJS)
-	@$(CC) -g $(FLAGS) $(LIBS) $(EXT_LIBS) $(OBJS) -o $(NAME)
+	@$(CC) -ggdb $(FLAGS) $(LIBS) $(EXT_LIBS) $(OBJS) -o $(NAME)
 
 $(LIBS):
 	@make -C ./libft

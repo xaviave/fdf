@@ -38,19 +38,19 @@ OBJ= $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 ./%.o: ./%.c
-	@gcc -Wall -Wextra -Werror -o $@ -c $<
-	@make -C libft_matrix
+	gcc -Wall -Wextra -Werror -o $@ -c $<
+	cd libft_matrix/ && make libft_matrix.a
 
 clean:
-	@rm -f $(OBJ)
-	@make -C libft_matrix clean
+	rm -f $(OBJ)
+	make -C ./libft_matrix clean
 
 fclean: clean
-	@rm -f $(NAME)
-	@make -C ./libft_matrix fclean
+	rm -f $(NAME)
+	make -C ./libft_matrix fclean
 
 re: fclean all
-	@make -C ./libft_matrix re
+	make -C ./libft_matrix re

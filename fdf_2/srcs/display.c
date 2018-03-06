@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/03/02 13:37:40 by wgaetan      #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 13:21:14 by xamartin    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/06 16:48:42 by wgaetan     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,64 +39,55 @@ int		ft_optimize(t_affvars var, t_mem *mem)
 	return (1);
 }
 
-void	ft_disp_h(t_mem *mem)
+int		calc_start(t_mem *mem)
 {
-	t_affvars	var;
-	int			i;
-	int			j;
+	int		i;
+	int		a;
 
+	a = mem->pt_grid[0][0].data[2];
 	i = 0;
-	while (i < mem->nb_y)
+	if (mem->pt_grid[0][mem->nb_x - 1].data[2] > a)
 	{
-		j = 0;
-		while (j < mem->nb_x - 1)
-		{
-			var.cx = -mem->pt_grid[i][j].data[0] * mem->zoom + mem->x_offset;
-			var.cy = -mem->pt_grid[i][j].data[1] * mem->zoom + mem->y_offset;
-			var.dx = -mem->pt_grid[i][j + 1].data[0] * mem->zoom
-				+ mem->x_offset;
-			var.dy = -mem->pt_grid[i][j + 1].data[1] * mem->zoom
-				+ mem->y_offset;
-			var.color1 = mem->pt_grid[i][j].color;
-			var.color2 = mem->pt_grid[i][j + 1].color;
-			if (ft_optimize(var, mem))
-				bresenham_gen(mem, var);
-			j++;
-		}
-		i++;
+		a = mem->pt_grid[0][mem->nb_x - 1].data[2];
+		i = 1;
 	}
-}
-
-void	ft_disp_v(t_mem *mem)
-{
-	t_affvars	var;
-	int			i;
-	int			j;
-
-	i = 0;
-	while (i < mem->nb_y - 1)
+	if (mem->pt_grid[mem->nb_y - 1][0].data[2] > a)
 	{
-		j = 0;
-		while (j < mem->nb_x)
-		{
-			var.cx = -mem->pt_grid[i][j].data[0] * mem->zoom + mem->x_offset;
-			var.cy = -mem->pt_grid[i][j].data[1] * mem->zoom + mem->y_offset;
-			var.dx = -mem->pt_grid[i + 1][j].data[0] * mem->zoom
-				+ mem->x_offset;
-			var.dy = -mem->pt_grid[i + 1][j].data[1] * mem->zoom
-				+ mem->y_offset;
-			var.color1 = mem->pt_grid[i][j].color;
-			var.color2 = mem->pt_grid[i + 1][j].color;
-			if (ft_optimize(var, mem))
-				bresenham_gen(mem, var);
-			j++;
-		}
-		i++;
+		a = mem->pt_grid[mem->nb_y - 1][0].data[2];
+		i = 2;
 	}
+	if (mem->pt_grid[mem->nb_y - 1][mem->nb_x - 1].data[2] > a)
+	{
+		a = mem->pt_grid[mem->nb_y - 1][mem->nb_x - 1].data[2];
+		i = 3;
+	}
+	return (i);
 }
 
 void	display(t_mem *mem)
 {
-	ft_disp_v(mem);
-	ft_disp_h(mem);
+	int		start;
+
+	start = calc_start(mem);
+	printf("%d\n", start);
+	if (start == 0)
+	{
+		ft_disp_v0(mem);
+		ft_disp_h0(mem);
+	}
+	else if (start == 1)
+	{
+		ft_disp_v1(mem);
+		ft_disp_h1(mem);
+	}
+	else if (start == 2)
+	{
+		ft_disp_v2(mem);
+		ft_disp_h2(mem);
+	}
+	else if (start == 3)
+	{
+		ft_disp_v3(mem);
+		ft_disp_h3(mem);
+	}
 }
