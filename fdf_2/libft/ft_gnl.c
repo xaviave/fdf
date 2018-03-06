@@ -6,11 +6,10 @@
 /*   By: wgaetan <wgaetan@student.42.fr>            +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/30 18:20:25 by wgaetan      #+#   ##    ##    #+#       */
-/*   Updated: 2018/01/30 18:28:39 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/06 12:58:53 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
-
 
 #include "ft_gnl.h"
 
@@ -69,7 +68,7 @@ static int		ft_readloop(char **line, t_fd *current)
 	return (mem.i ? 1 : 0);
 }
 
-static t_fd	*ft_fdinit(int fd)
+static t_fd		*ft_fdinit(int fd)
 {
 	t_fd *current;
 
@@ -81,7 +80,7 @@ static t_fd	*ft_fdinit(int fd)
 	return (current);
 }
 
-int		ft_gnl(const int fd, char **line)
+int				ft_gnl(const int fd, char **line)
 {
 	static t_fd	*list;
 	t_fd		*current;

@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/03/02 13:37:40 by wgaetan      #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/05 21:52:17 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/06 13:21:14 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -53,8 +53,10 @@ void	ft_disp_h(t_mem *mem)
 		{
 			var.cx = -mem->pt_grid[i][j].data[0] * mem->zoom + mem->x_offset;
 			var.cy = -mem->pt_grid[i][j].data[1] * mem->zoom + mem->y_offset;
-			var.dx = -mem->pt_grid[i][j + 1].data[0] * mem->zoom + mem->x_offset;
-			var.dy = -mem->pt_grid[i][j + 1].data[1] * mem->zoom + mem->y_offset;
+			var.dx = -mem->pt_grid[i][j + 1].data[0] * mem->zoom
+				+ mem->x_offset;
+			var.dy = -mem->pt_grid[i][j + 1].data[1] * mem->zoom
+				+ mem->y_offset;
 			var.color1 = mem->pt_grid[i][j].color;
 			var.color2 = mem->pt_grid[i][j + 1].color;
 			if (ft_optimize(var, mem))
@@ -79,8 +81,10 @@ void	ft_disp_v(t_mem *mem)
 		{
 			var.cx = -mem->pt_grid[i][j].data[0] * mem->zoom + mem->x_offset;
 			var.cy = -mem->pt_grid[i][j].data[1] * mem->zoom + mem->y_offset;
-			var.dx = -mem->pt_grid[i + 1][j].data[0] * mem->zoom + mem->x_offset;
-			var.dy = -mem->pt_grid[i + 1][j].data[1] * mem->zoom + mem->y_offset;
+			var.dx = -mem->pt_grid[i + 1][j].data[0] * mem->zoom
+				+ mem->x_offset;
+			var.dy = -mem->pt_grid[i + 1][j].data[1] * mem->zoom
+				+ mem->y_offset;
 			var.color1 = mem->pt_grid[i][j].color;
 			var.color2 = mem->pt_grid[i + 1][j].color;
 			if (ft_optimize(var, mem))
