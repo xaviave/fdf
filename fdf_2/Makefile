@@ -5,8 +5,8 @@
 #                                                  +:+:+   +:    +:  +:+:+     #
 #    By: wgaetan <marvin@le-101.fr>                 +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
-#    Created: 2018/03/02 14:05:53 by wgaetan      #+#   ##    ##    #+#        #
-#    Updated: 2018/03/02 14:05:59 by wgaetan     ###    #+. /#+    ###.fr      #
+#    Created: 2018/03/05 18:53:52 by wgaetan      #+#   ##    ##    #+#        #
+#    Updated: 2018/03/05 21:06:14 by wgaetan     ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -33,6 +33,8 @@ SRCS = srcs/main.c\
 	   srcs/display.c\
 	   srcs/image_manage.c\
 	   srcs/bresenham.c\
+	   srcs/color_init.c\
+	   srcs/color_manage.c\
 
 OBJS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/14 18:00:30 by wgaetan      #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/02 13:57:24 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/05 21:52:00 by wgaetan     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -54,12 +54,12 @@ void	bresenham_gen(t_mem *mem, t_affvars var)
 	int			j;
 	
 	ft_init_bvar(&bvar, var);
-	//bvar.i = bresenham_calc(var);
+	bvar.i = bresenham_calc(var);
 	j = 0;
 	while (1)
 	{
-		//var.z = (1 / bvar.i) * j;
-		ft_put_pixel(mem, mem->color, var.cx, var.cy);
+		var.z = ((1 / bvar.i) * j);
+		ft_put_pixel(mem, ft_color_calc(var), var.cx, var.cy);
 		if (var.cx == var.dx && var.cy == var.dy)
 			break ;
 		bvar.e2 = bvar.err;

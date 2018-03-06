@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/01 17:34:25 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/02 14:42:35 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/05 21:53:42 by wgaetan     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,7 @@ static void	free_split(char **tab)
 	free(tab);
 }
 
-int			*fill_tab(char *split, t_mem *map, int size)
+int			*fill_tab(char *split, t_mem *map, int size, int a)
 {
 	int		i;
 	char	**split_space;
@@ -43,6 +43,15 @@ int			*fill_tab(char *split, t_mem *map, int size)
 	while (split_space[i])
 	{
 		tab[i] = ft_atoi(split_space[i]);
+		if (a == 0 && i == 0)
+		{
+			map->min_z = tab[i];
+			map->max_z = tab[i];
+		}
+		if (tab[i] < map->min_z)
+			map->min_z = tab[i];
+		else if (tab[i] > map->max_z)
+			map->max_z = tab[i];
 		i++;
 	}
 	map->nb_y = size;
@@ -51,15 +60,17 @@ int			*fill_tab(char *split, t_mem *map, int size)
 	return (tab);
 }
 
-void		parse2(t_mem *map, char **split, int i, int fd)
+void		parse2(t_mem *map, char **split, int i)
 {
+	int		a;
+	
+	a = 0;
 	if (!(map->tab = (int **)malloc(sizeof(int *) * i + 1)))
 		return ;
-	fd = 0;
-	while (fd < i)
+	while (a < i)
 	{
-		map->tab[fd] = fill_tab(split[fd], map, i);
-		fd++;
+		map->tab[a] = fill_tab(split[a], map, i, a);
+		a++;
 	}
 	free_split(split);
 	printf("%d      %d\n",  map->nb_y,  map->nb_x);
@@ -83,12 +94,12 @@ void		parse(t_mem *map, char *file)
 		free(line);
 		free(tmp);
 		tmp = file;
-		file = ft_strjoin(file, "|");
+		file = ft_strjoin(file, " |");
 		free(tmp);
 		i++;
 	}
 	close(fd);
 	split = ft_strsplit(file, '|');
 	free(file);
-	parse2(map, split, i, fd);
+	parse2(map, split, i);
 }

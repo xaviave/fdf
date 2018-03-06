@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/01 15:38:34 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/05 13:18:04 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/05 21:09:56 by wgaetan     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,6 +33,7 @@ typedef struct		s_color
 typedef struct		s_pt
 {
 	float			data[3];
+	t_color			color;
 }					t_pt;
 
 typedef struct		s_affvars
@@ -41,6 +42,11 @@ typedef struct		s_affvars
 	int				dx;
 	int				cy;
 	int				dy;
+	float			z;
+	int				p1 : 4;
+	int				p2 : 4;
+	t_color			color1;
+	t_color			color2;
 }					t_affvars;
 
 typedef struct		s_bresvar
@@ -51,7 +57,7 @@ typedef struct		s_bresvar
 	int				sy;
 	int				err;
 	int				e2;
-	float			i;
+	float				i;
 }					t_bresvar;
 
 typedef struct		s_img
@@ -72,9 +78,13 @@ typedef struct		s_win
 
 typedef struct		s_mem
 {
-	t_color			color;
+	t_color			color[100];
+	t_color			color1;
+	t_color			color2;
 	t_win			win;
 	t_img			img;
+	int				max_z;
+	int				min_z;
 	float			theta;
 	float			alpha;
 	void			*mlx_ptr;
@@ -87,6 +97,7 @@ typedef struct		s_mem
 	int				zoom;
 }					t_mem;
 
+void				color_init(t_mem *mem);
 void				parse(t_mem *map, char *file);
 void				ft_get_pt_grid(t_mem *mem);
 void				ft_matrix_compute(t_mem *mem);
@@ -95,6 +106,8 @@ void				bresenham_gen(t_mem *mem, t_affvars var);
 void				ft_put_pixel(t_mem *mem, t_color color, int x, int y);
 void				display(t_mem *mem);
 void				ft_create_img(t_mem *mem);
+t_color				pt_color(t_mem *mem, int i, int j);
+t_color				ft_color_calc(t_affvars var);
 
 /*
 ** keyboard touch value
