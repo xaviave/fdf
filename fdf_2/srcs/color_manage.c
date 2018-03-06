@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/06 14:26:02 by wgaetan      #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/05 21:08:56 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/06 17:15:22 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,7 +31,6 @@ t_color	pt_color(t_mem *mem, int i, int j)
 	else
 		return (mem->color1);
 }
-
 
 t_color	ft_color_calc(t_affvars var)
 {

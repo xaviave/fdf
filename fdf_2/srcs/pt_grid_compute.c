@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/03/01 15:46:48 by wgaetan      #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 16:53:43 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/06 18:11:27 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,7 @@
 
 static void	pt_time_mtx(t_pt *pt, t_mtx mtx)
 {
-	float 	tmp[3];
+	float	tmp[3];
 	int		i;
 	int		j;
 
@@ -36,7 +36,7 @@ static void	pt_time_mtx(t_pt *pt, t_mtx mtx)
 	}
 	pt->data[0] = tmp[0];
 	pt->data[1] = tmp[1];
-	pt->data[2] = tmp[2];	
+	pt->data[2] = tmp[2];
 }
 
 static void	pt_grid_compute(t_mem *mem, t_mtx *mtx)
@@ -65,14 +65,18 @@ static void	ft_init_mtx(t_mem *mem, t_mtx *mtx)
 	mtx->data[0][0] = cos(mem->theta * (M_PI_4 / 4) + M_PI_2);
 	mtx->data[1][0] = sin(mem->theta * (M_PI_4 / 4) + M_PI_2);
 	mtx->data[2][0] = 0;
-	mtx->data[0][2] = -(cos(mem->alpha * (M_PI_4 / 4)) * cos(mem->theta * (M_PI_4 / 4)));
-	mtx->data[1][2] = -(cos(mem->alpha * (M_PI_4 / 4)) * sin(mem->theta * (M_PI_4 / 4)));
+	mtx->data[0][2] = -(cos(mem->alpha * (M_PI_4 / 4)) * cos(mem->theta
+				* (M_PI_4 / 4)));
+	mtx->data[1][2] = -(cos(mem->alpha * (M_PI_4 / 4)) * sin(mem->theta
+				* (M_PI_4 / 4)));
 	mtx->data[2][2] = -(sin(mem->alpha * (M_PI_4 / 4)));
-	mtx->data[0][1] = (mtx->data[1][0] * mtx->data[2][2]) - (mtx->data[2][0] * mtx->data[1][2]);
-	mtx->data[1][1] = (mtx->data[2][0] * mtx->data[0][2]) - (mtx->data[0][0] * mtx->data[2][2]);
-	mtx->data[2][1] = (mtx->data[0][0] * mtx->data[1][2]) - (mtx->data[1][0] * mtx->data[0][2]);
+	mtx->data[0][1] = (mtx->data[1][0] * mtx->data[2][2]) - (mtx->data[2][0]
+			* mtx->data[1][2]);
+	mtx->data[1][1] = (mtx->data[2][0] * mtx->data[0][2]) - (mtx->data[0][0]
+			* mtx->data[2][2]);
+	mtx->data[2][1] = (mtx->data[0][0] * mtx->data[1][2]) - (mtx->data[1][0]
+			* mtx->data[0][2]);
 }
-
 
 void		ft_matrix_compute(t_mem *mem)
 {
@@ -81,7 +85,7 @@ void		ft_matrix_compute(t_mem *mem)
 	t_mtx	*comm;
 	t_mtx	*transpo;
 	float	det;
-	
+
 	mtx = (t_mtx *)malloc(sizeof(t_mtx));
 	ft_mtx_build(mtx, 3, 3, 0);
 	ft_init_mtx(mem, mtx);

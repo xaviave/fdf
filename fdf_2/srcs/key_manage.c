@@ -6,7 +6,7 @@
 /*   By: xamartin <marvin@le-101.fr>                +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/03/06 15:06:54 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 15:13:29 by xamartin    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/06 17:24:27 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,12 +19,14 @@ static void	mod_z(t_mem *mem, int f)
 	int		j;
 
 	i = 0;
-	j = 0					;
+	j = 0;
 	while (i < mem->nb_y)
 	{
 		j = 0;
 		while (j < mem->nb_x)
 		{
+			if (f == 2)
+				mem->tab[i][j] *= -1;
 			if (f == 1)
 				mem->tab[i][j] *= 2;
 			if (f == 0)
@@ -35,16 +37,47 @@ static void	mod_z(t_mem *mem, int f)
 	}
 }
 
-static void	key_angle(t_mem *mem, int key)
+static void	key_manage2(t_mem *mem, int key)
+{
+	if (key == TOUCH_W)
+	{
+		mem->alpha += 1;
+		if (mem->alpha < -16)
+			mem->alpha += 32;
+		if (mem->alpha > 16)
+			mem->alpha -= 32;
+	}
+	if (key == TOUCH_G)
+		mod_z(mem, 2);
+}
+
+static void	key_manage(t_mem *mem, int key)
 {
 	if (key == TOUCH_A)
-		mem->theta -= M_PI_4 / 4;
+	{
+		mem->theta -= 1;
+		if (mem->theta < -16)
+			mem->theta += 32;
+		if (mem->theta > 16)
+			mem->theta -= 32;
+	}
 	if (key == TOUCH_S)
-		mem->theta += M_PI_4 / 4;
+	{
+		mem->theta += 1;
+		if (mem->theta < -16)
+			mem->theta += 32;
+		if (mem->theta > 16)
+			mem->theta -= 32;
+	}
 	if (key == TOUCH_Q)
-		mem->alpha -= M_PI_4 / 4;
-	if (key == TOUCH_W)
-		mem->alpha += M_PI_4 / 4;
+	{
+		mem->alpha -= 1;
+		if (mem->alpha < -16)
+			mem->alpha += 32;
+		if (mem->alpha > 16)
+			mem->alpha -= 32;
+	}
+	key_manage2(mem, key);
 }
 
 int			ft_key(int key, t_mem *mem)
@@ -67,7 +100,7 @@ int			ft_key(int key, t_mem *mem)
 		mem->y_offset += 100;
 	if (key == TOUCH_ECHAP)
 		exit(1);
-	key_angle(mem, key);
+	key_manage(mem, key);
 	mlx_destroy_image(mem->mlx_ptr, mem->img.ptr);
 	ft_create_img(mem);
 	ft_main_loop(mem);

@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/03/02 13:37:40 by wgaetan      #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 16:48:42 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/06 17:02:33 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -69,7 +69,6 @@ void	display(t_mem *mem)
 	int		start;
 
 	start = calc_start(mem);
-	printf("%d\n", start);
 	if (start == 0)
 	{
 		ft_disp_v0(mem);

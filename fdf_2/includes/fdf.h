@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/01 15:38:34 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 14:44:18 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/06 17:21:23 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -81,10 +81,6 @@ typedef struct		s_mem
 	t_color			color[100];
 	t_color			color1;
 	t_color			color2;
-	t_color			colora;
-	t_color			colorb;
-	t_color			colorc;
-	t_color			colord;
 	t_win			win;
 	t_img			img;
 	int				max_z;
@@ -93,7 +89,7 @@ typedef struct		s_mem
 	float			alpha;
 	void			*mlx_ptr;
 	t_pt			**pt_grid;
-	int				**tab;
+	float			**tab;
 	int				nb_x;
 	int				nb_y;
 	int				x_offset;
@@ -101,6 +97,8 @@ typedef struct		s_mem
 	int				zoom;
 }					t_mem;
 
+int					ft_key(int key, t_mem *mem);
+void				ft_main_loop(t_mem *mem);
 void				color_init(t_mem *mem);
 void				parse(t_mem *map, char *file);
 void				ft_get_pt_grid(t_mem *mem);
