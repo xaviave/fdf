@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   key_manage.c                                     .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: xamartin <marvin@le-101.fr>                +:+   +:    +:    +:+     */
+/*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/03/06 15:06:54 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 17:24:27 by xamartin    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/06 22:13:51 by wgaetan     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -80,6 +80,18 @@ static void	key_manage(t_mem *mem, int key)
 	key_manage2(mem, key);
 }
 
+static void ft_back_keys(int key, t_mem *mem)
+{
+	if (key == TOUCH_NUMPAD_TIMES)
+		mem->backid++;
+	if (key == TOUCH_NUMPAD_DIVIDE)
+		mem->backid--;
+	if (mem->backid > 10)
+		mem->backid = 0;
+	if (mem->backid < 0)
+		mem->backid = 10;
+}
+
 int			ft_key(int key, t_mem *mem)
 {
 	if (key == TOUCH_NUMPAD_LESS && mem->zoom > 1)
@@ -100,6 +112,8 @@ int			ft_key(int key, t_mem *mem)
 		mem->y_offset += 100;
 	if (key == TOUCH_ECHAP)
 		exit(1);
+	if (key == TOUCH_NUMPAD_TIMES || key == TOUCH_NUMPAD_DIVIDE)
+		ft_back_keys(key, mem);
 	key_manage(mem, key);
 	mlx_destroy_image(mem->mlx_ptr, mem->img.ptr);
 	ft_create_img(mem);

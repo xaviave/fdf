@@ -6,26 +6,52 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/01 14:57:16 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 18:16:48 by xamartin    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/07 09:52:46 by wgaetan     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
+void	ft_fill_image(t_mem *mem)
+{
+	int i;
+	int j;
+	t_color	color;
+
+	i = 0;
+	j = 0;
+	color.r = 0;
+	color.g = 0;
+	color.g = 0;
+	color.a = 255;
+	while (i < 900)
+	{
+		while (j < 1800)
+		{
+			ft_put_pixel(mem, color, j, i);
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+}
+
+
 static int	ft_init(t_mem *mem)
 {
-	mem->color1.r = 159;
-	mem->color1.g = 46;
-	mem->color1.b = 255;
-	mem->color1.a = 100;
-	mem->color2.r = 159;
-	mem->color2.g = 155;
-	mem->color2.b = 255;
+	mem->color1.r = 0;
+	mem->color1.g = 0;
+	mem->color1.b = 0;
+	mem->color1.a = 0;
+	mem->color2.r = 204;
+	mem->color2.g = 204;
+	mem->color2.b = 0;
 	mem->color2.a = 0;
+	mem->backid = 0;
 	mem->theta = 4;
 	mem->alpha = 4;
-	mem->win.width = 800;
+	mem->win.width = 1800;
 	mem->win.height = 900;
 	mem->zoom = 10;
 	mem->x_offset = mem->win.width / 2;
@@ -34,13 +60,17 @@ static int	ft_init(t_mem *mem)
 	mem->win.win_ptr = mlx_new_window(mem->mlx_ptr, mem->win.width,
 			mem->win.height, "fdf");
 	ft_create_img(mem);
+	ft_init_backgrounds(mem);
 	return (1);
 }
 
 void		ft_main_loop(t_mem *mem)
 {
 	ft_matrix_compute(mem);
+	ft_fill_image(mem);
 	display(mem);
+	mlx_put_image_to_window(mem->mlx_ptr, mem->win.win_ptr,
+		mem->backbanck[mem->backid].ptr, 0, 0);
 	mlx_put_image_to_window(mem->mlx_ptr, mem->win.win_ptr, mem->img.ptr, 0, 0);
 }
 

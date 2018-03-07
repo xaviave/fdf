@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/01 15:38:34 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 17:21:23 by xamartin    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/06 22:33:58 by wgaetan     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -83,6 +83,7 @@ typedef struct		s_mem
 	t_color			color2;
 	t_win			win;
 	t_img			img;
+	t_img			backbanck[11];
 	int				max_z;
 	int				min_z;
 	float			theta;
@@ -95,6 +96,7 @@ typedef struct		s_mem
 	int				x_offset;
 	int				y_offset;
 	int				zoom;
+	int				backid;
 }					t_mem;
 
 int					ft_key(int key, t_mem *mem);
@@ -119,6 +121,8 @@ void				ft_disp_v2(t_mem *mem);
 void				ft_disp_h3(t_mem *mem);
 void				ft_disp_v3(t_mem *mem);
 int					ft_optimize(t_affvars var, t_mem *mem);
+void				ft_create_xpm_img(void *mlx_ptr, t_img *img, char *str);
+void				ft_init_backgrounds(t_mem *mem);
 
 /*
 ** keyboard touch value
