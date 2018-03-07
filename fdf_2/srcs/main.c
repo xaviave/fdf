@@ -6,17 +6,17 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/01 14:57:16 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/07 09:52:46 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/07 10:44:54 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	ft_fill_image(t_mem *mem)
+static void	ft_fill_image(t_mem *mem)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 	t_color	color;
 
 	i = 0;
@@ -36,7 +36,6 @@ void	ft_fill_image(t_mem *mem)
 		i++;
 	}
 }
-
 
 static int	ft_init(t_mem *mem)
 {
@@ -64,6 +63,12 @@ static int	ft_init(t_mem *mem)
 	return (1);
 }
 
+static int	ft_error(void)
+{
+	ft_putstr("Usage fdf: ./fdf [maps.fdf]\n");
+	return (0);
+}
+
 void		ft_main_loop(t_mem *mem)
 {
 	ft_matrix_compute(mem);
@@ -81,7 +86,7 @@ int			main(int ac, char **av)
 	int		i;
 
 	if (ac != 2)
-		return (0);
+		return (ft_error());
 	mem = (t_mem *)malloc(sizeof(t_mem));
 	i = 0;
 	ft_init(mem);

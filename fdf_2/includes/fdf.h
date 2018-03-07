@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/01 15:38:34 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 22:33:58 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/07 10:13:05 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -83,7 +83,7 @@ typedef struct		s_mem
 	t_color			color2;
 	t_win			win;
 	t_img			img;
-	t_img			backbanck[11];
+	t_img			backbanck[12];
 	int				max_z;
 	int				min_z;
 	float			theta;

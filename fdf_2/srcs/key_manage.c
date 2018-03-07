@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/03/06 15:06:54 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 22:13:51 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/07 10:35:54 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -80,16 +80,16 @@ static void	key_manage(t_mem *mem, int key)
 	key_manage2(mem, key);
 }
 
-static void ft_back_keys(int key, t_mem *mem)
+static void	ft_back_keys(int key, t_mem *mem)
 {
 	if (key == TOUCH_NUMPAD_TIMES)
 		mem->backid++;
 	if (key == TOUCH_NUMPAD_DIVIDE)
 		mem->backid--;
-	if (mem->backid > 10)
+	if (mem->backid > 11)
 		mem->backid = 0;
 	if (mem->backid < 0)
-		mem->backid = 10;
+		mem->backid = 11;
 }
 
 int			ft_key(int key, t_mem *mem)
