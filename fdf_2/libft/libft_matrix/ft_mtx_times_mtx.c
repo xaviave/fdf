@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/02 21:52:36 by wgaetan      #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/01 09:52:14 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/12 11:20:27 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,14 +20,14 @@ t_mtx	*ft_mtx_times_mtx(t_mtx m1, t_mtx m2)
 	int		j;
 	int		k;
 
-	i = 0;
+	i = -1;
 	j = 0;
 	k = -1;
 	if (m1.n != m2.m)
 		return (NULL);
 	prod = (t_mtx *)malloc(sizeof(t_mtx));
 	ft_mtx_build(prod, m1.m, m2.n, 0);
-	while (i < prod->m)
+	while (++i < prod->m)
 	{
 		while (j < prod->n)
 		{
@@ -38,7 +38,6 @@ t_mtx	*ft_mtx_times_mtx(t_mtx m1, t_mtx m2)
 		}
 		j = 0;
 		k = -1;
-		i++;
 	}
 	return (prod);
 }

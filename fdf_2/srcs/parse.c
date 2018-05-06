@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/01 17:34:25 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/06 17:06:36 by xamartin    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/05/06 15:38:24 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -92,7 +92,12 @@ void			parse(t_mem *map, char *file)
 	char	**split;
 
 	i = 0;
-	fd = open(file, O_RDONLY);
+	fd = open(file, O_RDWR);
+	if (fd < 0)
+	{
+		free(map);
+		exit(0);
+	}
 	file = ft_strdup("");
 	while (ft_gnl(fd, &line))
 	{

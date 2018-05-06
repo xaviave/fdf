@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/01 14:57:16 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/07 10:44:54 by xamartin    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/05/06 15:38:59 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,9 +39,9 @@ static void	ft_fill_image(t_mem *mem)
 
 static int	ft_init(t_mem *mem)
 {
-	mem->color1.r = 0;
-	mem->color1.g = 0;
-	mem->color1.b = 0;
+	mem->color1.r = 52;
+	mem->color1.g = 52;
+	mem->color1.b = 255;
 	mem->color1.a = 0;
 	mem->color2.r = 204;
 	mem->color2.g = 204;
@@ -89,8 +89,8 @@ int			main(int ac, char **av)
 		return (ft_error());
 	mem = (t_mem *)malloc(sizeof(t_mem));
 	i = 0;
-	ft_init(mem);
 	parse(mem, av[1]);
+	ft_init(mem);
 	mem->pt_grid = (t_pt **)malloc(sizeof(t_pt *) * mem->nb_y);
 	while (i < mem->nb_y)
 	{

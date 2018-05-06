@@ -6,14 +6,13 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/01 15:38:34 by xamartin     #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/07 10:13:05 by xamartin    ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/12 11:14:35 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #ifndef _FDF_H
 # define _FDF_H
-
 
 # include "../minilibx_macos/mlx.h"
 # include "../libft/libft.h"
@@ -22,6 +21,7 @@
 /*
 ** functions
 */
+
 typedef struct		s_color
 {
 	unsigned char	r;
@@ -57,7 +57,7 @@ typedef struct		s_bresvar
 	int				sy;
 	int				err;
 	int				e2;
-	float				i;
+	float			i;
 }					t_bresvar;
 
 typedef struct		s_img
@@ -135,7 +135,7 @@ void				ft_init_backgrounds(t_mem *mem);
 # define TOUCH_5 23
 # define TOUCH_6 22
 # define TOUCH_7 26
-# define TOUCH_8 28 
+# define TOUCH_8 28
 # define TOUCH_9 25
 # define TOUCH_0 29
 # define TOUCH_Q 12

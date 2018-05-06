@@ -6,17 +6,18 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/02/02 22:31:42 by wgaetan      #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/01 09:55:26 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/12 11:18:24 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft_matrix.h"
-t_mtx	*ft_mtx_times_scal(t_mtx mtx, double scalar)
+
+t_mtx		*ft_mtx_times_scal(t_mtx mtx, double scalar)
 {
-	t_mtx *prod;
-	int i;
-	int j;
+	t_mtx	*prod;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;

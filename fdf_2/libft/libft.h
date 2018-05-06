@@ -6,7 +6,7 @@
 /*   By: wgaetan <wgaetan@student.le-101.fr>        +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/01/30 18:57:49 by wgaetan      #+#   ##    ##    #+#       */
-/*   Updated: 2018/03/02 10:40:51 by wgaetan     ###    #+. /#+    ###.fr     */
+/*   Updated: 2018/03/12 11:17:38 by xamartin    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,19 +28,19 @@ typedef struct		s_list
 }					t_list;
 
 int					ft_atoi(const char *str);
-void                ft_bzero(void *s, size_t n);
-int                 ft_gnl(const int fd, char **line);
-void                *ft_memalloc(size_t size);
+void				ft_bzero(void *s, size_t n);
+int					ft_gnl(const int fd, char **line);
+void				*ft_memalloc(size_t size);
 void				*ft_memcpy(void *dest, void *src, size_t n);
 void				ft_putchar(char c);
-char                *ft_strcat(char *dest, char *src);
-char                *ft_strchr(const char *s, int c);
+char				*ft_strcat(char *dest, char *src);
+char				*ft_strchr(const char *s, int c);
 int					ft_strcmp(const char *s1, const char *s2);
-char                *ft_strcpy(char *dest, const char *src);
-char                *ft_strdup(char *str);
-char                *ft_strjoin(const char *s1, const char *s2);
-size_t              ft_strlen(const char *str);
-char                *ft_strnew(size_t size);
+char				*ft_strcpy(char *dest, const char *src);
+char				*ft_strdup(char *str);
+char				*ft_strjoin(const char *s1, const char *s2);
+size_t				ft_strlen(const char *str);
+char				*ft_strnew(size_t size);
 char				**ft_strsplit(char *str, char c);
 char				*ft_strsub(const char *s, unsigned int start, size_t len);
 void				ft_putstr(char *str);
